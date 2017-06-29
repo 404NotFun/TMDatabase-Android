@@ -28,12 +28,12 @@ public class TMDatabase {
     }
 
     public static String getSharedPreferencesString(String k) {
-        return getSharedPreferences().getString(k , null);
+        return getSharedPreferences().getString(k , "");
     }
 
-    public static void setSharedPreferencesValue(String k, String v) {
+    public static boolean setSharedPreferencesString(String k, String v) {
         final SharedPreferences.Editor editor = getSharedPreferences().edit();
         editor.putString(k , v);
-        editor.commit();
+        return editor.commit();
     }
 }
